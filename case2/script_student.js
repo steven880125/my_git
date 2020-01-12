@@ -29,16 +29,14 @@ function myFunction(response) {
     var loc =arr.cwbopendata.dataset.locations.location[0].locationName;
     console.log(loc);
 
-    var out = "<table><tr><th>行政區</th><th>時間</th><th>溫度</th>";
+    var out = "<table><tr><th> 行政區 </th><th>&emsp;時間&emsp;</th><th>溫度</th>";
         
     for(i = 0; i < arr.cwbopendata.dataset.locations.location.length; i++) {
         for( j = 0; j <arr.cwbopendata.dataset.locations.location[i].weatherElement[0].time.length; j++){
             out += "<tr><td>" ;
             out +=  arr.cwbopendata.dataset.locations.location[i].locationName + "</td><td>";
-            out +=  arr.cwbopendata.dataset.locations.location[i].weatherElement[0].time[j].dataTime.substr(5,8).replace("-","/").replace("T"," ") + "時" + "</td><td>" + //時間
-            // arr.cwbopendata.dataset.locations.location[0].weatherElement[0].time[0].elementValue.value + "</td><td>(" +
-            // arr.data[i].電話號碼 + "</td><td>(" +
-                    arr.cwbopendata.dataset.locations.location[i].weatherElement[0].time[j].elementValue.value + "</td></tr>";
+            out +=  "&emsp;" + arr.cwbopendata.dataset.locations.location[i].weatherElement[0].time[j].dataTime.substr(5,8).replace("-","/").replace("T"," ") + "時" + "</td><td>" + //時間
+                    "&emsp;" + arr.cwbopendata.dataset.locations.location[i].weatherElement[0].time[j].elementValue.value + "</td></tr>";
         }
     }
     out += "</table>";
